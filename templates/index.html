@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>Página inicial</title>
+</head>
+<body>
+    <h1>Bem-vinda a Blibioteca</h1>
+    <p>Seu cantinho verde começa aqui. Explore, cultive e se encante com nossas plantas!</p>
+
+    <nav>
+        {% if 'usuario_id' not in session %}
+            <a href="{{ url_for('cadastro_usuario') }}">Criar Conta</a>
+            <a href="{{ url_for('login') }}">Login</a>
+        {% else %}
+            <a href="{{ url_for('criar_produto') }}">Cadastrar produtos</a>
+            <a href="{{ url_for('produtos') }}">Ver produtos</a>
+            <a href="{{ url_for('logout') }}">Sair ({{ session['usuario_nome'] }})</a>
+        {% endif %}
+    </nav>
+
+    <div class="mural">
+        <img src="{{ url_for('static', filename='img_mural.png') }}" alt="Mural Plantaê">
+    </div>
+</body>
+</html>
