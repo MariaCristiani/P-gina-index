@@ -15,8 +15,8 @@
             <a href="{{ url_for('cadastro_usuario') }}">Criar Conta</a>
             <a href="{{ url_for('login') }}">Login</a>
         {% else %}
-            <a href="{{ url_for('criar_produto') }}">Cadastrar produtos</a>
-            <a href="{{ url_for('produtos') }}">Ver produtos</a>
+            <a href="{{ url_for('criar_livro') }}">Cadastrar produtos</a>
+            <a href="{{ url_for('livros') }}">Ver produtos</a>
             <a href="{{ url_for('logout') }}">Sair ({{ session['usuario_nome'] }})</a>
         {% endif %}
     </nav>

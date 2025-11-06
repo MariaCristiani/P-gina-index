@@ -11,23 +11,31 @@
 
     <table border="1">
         <tr>
-            <th>Nome</th>
-            <th>Preço</th>
-            <th>Descrição</th>
+            <th>Título</th>
+            <th>ISBN</th>
+            <th>Ano de publicação</th>
+            <th>Quantidade disponivel</th>
+            <th>Resumo</th>
         </tr>
-        {% for produto in produtos %}
+        {% for livro in livros %}
         <tr>
-            <td>{{ produto.nome }}</td>
-            <td>{{ produto.preco }}</td>
-            <td>{{ produto.descricao }}</td>
+            <td>{{ livro.Titulo }}</td>
+            <td>{{ livro.ISBN }}</td>
+            <td>{{ livro.Ano_publicacao }}</td>
+            <td>{{ livro.Quantidade_disponivel }}</td>
+            <td>{{ livro.Resumo }}</td>
             <td>
-                <a href="{{ url_for('editar_produto', id=produto.id) }}">Editar</a>
+                <a href="{{ url_for('editar_livro', id=livro.id) }}">Editar</a>
             </td>
         </tr>
         {% endfor %}
     </table>
 
-    <p><a href="{{ url_for('criar_produto') }}">Criar novo produto</a></p>
-    <p><a href="{{ url_for('excluir_produto') }}">Excluir produto</a></p>
+    <p><a href="{{ url_for('criar_livro') }}">Criar novo livro</a></p>
+    <p><a href="{{ url_for('excluir_livro') }}">Excluir livro</a></p>
 </body>
 </html>
+
+
+
+ 
