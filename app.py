@@ -5,7 +5,7 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, sessionmaker,
 app = Flask(__name__)
 app.secret_key = "chave-secreta"
 
-DB_URI = f"mysql+pymysql://root:20231101110020@localhost:3306/projeto_biblioteca"
+DB_URI = f"mysql+pymysql://root:""@localhost:3306/projeto_biblioteca"
 engine = create_engine(DB_URI)
 SessionLocal = scoped_session(sessionmaker(bind=engine))
 
@@ -97,12 +97,11 @@ def criar_livro():
         resumo = request.form["resumo"]
         
         with SessionLocal() as db:
-            # Instanciando o objeto Livros com os atributos corretos
             livro = Livros(
                 Titulo=titulo, 
                 Autor_id=autor_id, 
                 ISBN=isbn, 
-                Ano_publicação=ano_publicacao, # Usando a grafia com 'ã' conforme o modelo [4]
+                Ano_publicação=ano_publicacao, 
                 Genero_id=genero_id, 
                 Editora_id=editora_id, 
                 Quantidade_disponivel=quantidade_disponivel, 
@@ -141,7 +140,7 @@ def editar_livro(ID_livro):
             livro.Titulo = request.form["titulo"]
             livro.Autor_id = request.form["autor_id"]
             livro.ISBN = request.form["isbn"]
-            livro.Ano_publicação = request.form["ano_publicacao"]
+            livro.Ano_publicacao = request.form["ano_publicacao"]
             livro.Genero_id = request.form["genero_id"]
             livro.Editora_id = request.form["editora_id"]
             livro.Quantidade_disponivel = request.form["quantidade_disponivel"]
